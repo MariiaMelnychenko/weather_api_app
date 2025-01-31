@@ -9,12 +9,8 @@ import 'shared/models/weather_model.dart';
 void main() async {
   await dotenv.load(fileName: ".env");
   runApp(
-    MultiBlocProvider(
-      providers: [
-        BlocProvider<WeatherBloc>(
-          create: (context) => WeatherBloc(weatherModel: WeatherModel()),
-        ),
-      ],
+    BlocProvider(
+      create: (context) => WeatherBloc(weatherModel: WeatherModel()),
       child: const MyApp(),
     ),
   );
